@@ -148,10 +148,18 @@ const Index = () => {
 
       {activeSection === 'home' && (
         <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 animate-pulse-glow"></div>
+          <div className="absolute inset-0 animated-gradient-bg opacity-30"></div>
+          <div className="wave-shape">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-primary/20"></path>
+            </svg>
+          </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center animate-fade-in">
-              <h2 className="text-6xl font-bold mb-6 text-gradient animate-float">
+              <div className="flex justify-center mb-6">
+                <img src="https://cdn.poehali.dev/files/Рисунок1.png" alt="КЛ" className="h-32 w-auto animate-float hover-scale" />
+              </div>
+              <h2 className="text-5xl font-bold mb-4 text-gradient">
                 Чистота, забота и красота
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
