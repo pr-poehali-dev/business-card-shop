@@ -11,6 +11,7 @@ interface Product {
   name: string;
   price: number;
   category: string;
+  subcategory?: string;
   rating: number;
   image: string;
   badge?: string;
@@ -24,27 +25,58 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedSubcategory, setSelectedSubcategory] = useState('all');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const products: Product[] = [
-    { id: 1, name: 'Гель для стирки Universal Pro', price: 590, category: 'cleaning', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/725c30b3-1498-4c05-9ba2-5568ad16bffe.jpg', badge: 'ХИТ' },
-    { id: 2, name: 'Средство для посуды Clean Fresh', price: 290, category: 'cleaning', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/a33d96ea-0dc7-4df5-ac90-28be1ce1cfbb.jpg', badge: 'НОВИНКА' },
-    { id: 3, name: 'Универсальное чистящее средство', price: 450, category: 'cleaning', rating: 5, image: '/placeholder.svg' },
-    { id: 4, name: 'Кондиционер для белья Soft', price: 390, category: 'cleaning', rating: 4, image: '/placeholder.svg' },
-    { id: 5, name: 'Футболка КЛ', price: 1290, category: 'fashion', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
-    { id: 6, name: 'Толстовка КЛ Style', price: 2490, category: 'fashion', rating: 5, image: '/placeholder.svg' },
-    { id: 7, name: 'Парфюмерная вода Fresh', price: 1890, category: 'cosmetics', rating: 5, image: '/placeholder.svg', badge: 'НОВИНКА' },
-    { id: 8, name: 'Крем для рук Velvet Touch', price: 490, category: 'cosmetics', rating: 4, image: '/placeholder.svg' },
-    { id: 9, name: 'Шампунь Natural Care', price: 690, category: 'cosmetics', rating: 5, image: '/placeholder.svg' },
-    { id: 10, name: 'Туалетная вода КЛ Night', price: 2290, category: 'cosmetics', rating: 5, image: '/placeholder.svg' },
+    { id: 1, name: 'Гель для стирки Universal Pro', price: 590, category: 'cleaning', subcategory: 'laundry', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/725c30b3-1498-4c05-9ba2-5568ad16bffe.jpg', badge: 'ХИТ' },
+    { id: 2, name: 'Средство для посуды Clean Fresh', price: 290, category: 'cleaning', subcategory: 'dishes', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/a33d96ea-0dc7-4df5-ac90-28be1ce1cfbb.jpg', badge: 'НОВИНКА' },
+    { id: 3, name: 'Универсальное чистящее средство', price: 450, category: 'cleaning', subcategory: 'surface', rating: 5, image: '/placeholder.svg' },
+    { id: 4, name: 'Кондиционер для белья Soft', price: 390, category: 'cleaning', subcategory: 'laundry', rating: 4, image: '/placeholder.svg' },
+    { id: 5, name: 'Футболка КЛ', price: 1290, category: 'fashion', subcategory: 'tops', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
+    { id: 6, name: 'Толстовка КЛ Style', price: 2490, category: 'fashion', subcategory: 'tops', rating: 5, image: '/placeholder.svg' },
+    { id: 7, name: 'Парфюмерная вода Fresh', price: 1890, category: 'cosmetics', subcategory: 'perfume', rating: 5, image: '/placeholder.svg', badge: 'НОВИНКА' },
+    { id: 8, name: 'Крем для рук Velvet Touch', price: 490, category: 'cosmetics', subcategory: 'skincare', rating: 4, image: '/placeholder.svg' },
+    { id: 9, name: 'Шампунь Natural Care', price: 690, category: 'cosmetics', subcategory: 'haircare', rating: 5, image: '/placeholder.svg' },
+    { id: 10, name: 'Туалетная вода КЛ Night', price: 2290, category: 'cosmetics', subcategory: 'perfume', rating: 5, image: '/placeholder.svg' },
   ];
 
   const categories = [
     { id: 'all', name: 'Все товары', icon: 'Grid3x3' },
-    { id: 'cleaning', name: 'Бытовая химия', icon: 'Droplets' },
-    { id: 'fashion', name: 'Одежда', icon: 'Shirt' },
-    { id: 'cosmetics', name: 'Косметика и парфюмерия', icon: 'Sparkles' },
+    { 
+      id: 'cleaning', 
+      name: 'Бытовая химия', 
+      icon: 'Droplets',
+      subcategories: [
+        { id: 'all', name: 'Все' },
+        { id: 'laundry', name: 'Для стирки' },
+        { id: 'dishes', name: 'Для посуды' },
+        { id: 'surface', name: 'Для уборки' },
+      ]
+    },
+    { 
+      id: 'fashion', 
+      name: 'Одежда', 
+      icon: 'Shirt',
+      subcategories: [
+        { id: 'all', name: 'Все' },
+        { id: 'tops', name: 'Верх' },
+        { id: 'bottoms', name: 'Низ' },
+        { id: 'accessories', name: 'Аксессуары' },
+      ]
+    },
+    { 
+      id: 'cosmetics', 
+      name: 'Косметика и парфюмерия', 
+      icon: 'Sparkles',
+      subcategories: [
+        { id: 'all', name: 'Все' },
+        { id: 'perfume', name: 'Парфюмерия' },
+        { id: 'skincare', name: 'Уход за кожей' },
+        { id: 'haircare', name: 'Уход за волосами' },
+      ]
+    },
   ];
 
   const reviews = [
@@ -57,8 +89,12 @@ const Index = () => {
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
-    return matchesSearch && matchesCategory;
+    const matchesSubcategory = selectedSubcategory === 'all' || product.subcategory === selectedSubcategory;
+    return matchesSearch && matchesCategory && matchesSubcategory;
   });
+
+  const currentCategory = categories.find(cat => cat.id === selectedCategory);
+  const subcategories = currentCategory?.subcategories || [];
 
   const addToCart = (product: Product) => {
     const existingItem = cart.find(item => item.id === product.id);
@@ -117,6 +153,9 @@ const Index = () => {
         setSearchQuery={setSearchQuery}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
+        selectedSubcategory={selectedSubcategory}
+        setSelectedSubcategory={setSelectedSubcategory}
+        subcategories={subcategories}
         filteredProducts={filteredProducts}
         categories={categories}
         reviews={reviews}

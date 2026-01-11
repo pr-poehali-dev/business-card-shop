@@ -9,6 +9,7 @@ interface Product {
   name: string;
   price: number;
   category: string;
+  subcategory?: string;
   rating: number;
   image: string;
   badge?: string;
@@ -22,10 +23,16 @@ interface Review {
   date: string;
 }
 
+interface Subcategory {
+  id: string;
+  name: string;
+}
+
 interface Category {
   id: string;
   name: string;
   icon: string;
+  subcategories?: Subcategory[];
 }
 
 interface ContentSectionsProps {
@@ -34,6 +41,9 @@ interface ContentSectionsProps {
   setSearchQuery: (query: string) => void;
   selectedCategory: string;
   setSelectedCategory: (category: string) => void;
+  selectedSubcategory: string;
+  setSelectedSubcategory: (subcategory: string) => void;
+  subcategories: Subcategory[];
   filteredProducts: Product[];
   categories: Category[];
   reviews: Review[];
@@ -47,6 +57,9 @@ const ContentSections = ({
   setSearchQuery,
   selectedCategory,
   setSelectedCategory,
+  selectedSubcategory,
+  setSelectedSubcategory,
+  subcategories,
   filteredProducts,
   categories,
   reviews,
@@ -73,11 +86,14 @@ const ContentSections = ({
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 justify-center mb-12 animate-fade-in">
+            <div className="flex flex-wrap gap-4 justify-center mb-8 animate-fade-in">
               {categories.map(category => (
                 <button
                   key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
+                  onClick={() => {
+                    setSelectedCategory(category.id);
+                    setSelectedSubcategory('all');
+                  }}
                   className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all hover-scale ${
                     selectedCategory === category.id
                       ? 'bg-gradient-to-r from-primary to-secondary text-white'
@@ -89,6 +105,24 @@ const ContentSections = ({
                 </button>
               ))}
             </div>
+
+            {subcategories.length > 0 && selectedCategory !== 'all' && (
+              <div className="flex flex-wrap gap-3 justify-center mb-12 animate-fade-in">
+                {subcategories.map(subcategory => (
+                  <button
+                    key={subcategory.id}
+                    onClick={() => setSelectedSubcategory(subcategory.id)}
+                    className={`px-5 py-2 rounded-lg transition-all text-sm font-medium ${
+                      selectedSubcategory === subcategory.id
+                        ? 'bg-accent text-accent-foreground'
+                        : 'glass-card text-muted-foreground hover:text-foreground hover-scale'
+                    }`}
+                  >
+                    {subcategory.name}
+                  </button>
+                ))}
+              </div>
+            )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {filteredProducts.map((product, index) => (

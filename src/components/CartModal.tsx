@@ -8,6 +8,7 @@ interface Product {
   name: string;
   price: number;
   category: string;
+  subcategory?: string;
   rating: number;
   image: string;
   badge?: string;
