@@ -17,6 +17,7 @@ interface Product {
   subcategory?: string;
   rating: number;
   image: string;
+  images?: string[];
   badge?: string;
 }
 
@@ -32,9 +33,22 @@ const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const products: Product[] = [
-    { id: 5, name: 'Футболка КЛ', price: 1290, category: 'fashion', subcategory: 'tops', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
+    { 
+      id: 5, 
+      name: 'Футболка КЛ', 
+      price: 1290, 
+      category: 'fashion', 
+      subcategory: 'tops', 
+      rating: 5, 
+      image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', 
+      images: [
+        'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg'
+      ],
+      badge: 'ХИТ' 
+    },
     { id: 6, name: 'Толстовка КЛ Style', price: 2490, category: 'fashion', subcategory: 'tops', rating: 5, image: '/placeholder.svg' },
     { id: 7, name: 'Парфюмерная вода Fresh', price: 1890, category: 'cosmetics', subcategory: 'perfume', rating: 5, image: '/placeholder.svg', badge: 'НОВИНКА' },
     { id: 8, name: 'Крем для рук Velvet Touch', price: 490, category: 'cosmetics', subcategory: 'skincare', rating: 4, image: '/placeholder.svg' },
@@ -136,10 +150,12 @@ const Index = () => {
 
   const handleProductClick = (productId: number) => {
     setSelectedProductId(productId);
+    setSelectedImageIndex(0);
     setActiveSection('product-detail');
   };
 
   const selectedProduct = products.find(p => p.id === selectedProductId);
+  const productImages = selectedProduct?.images || [selectedProduct?.image || ''];
 
   return (
     <div className="min-h-screen bg-background">
@@ -184,12 +200,50 @@ const Index = () => {
             </Button>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-              <div className="animate-fade-in">
-                <img
-                  src={selectedProduct.image}
-                  alt={selectedProduct.name}
-                  className="w-full rounded-2xl glass-card shadow-lg"
-                />
+              <div className="animate-fade-in space-y-4">
+                <div className="relative overflow-hidden rounded-2xl glass-card shadow-lg">
+                  <img
+                    src={productImages[selectedImageIndex]}
+                    alt={selectedProduct.name}
+                    className="w-full aspect-square object-cover"
+                  />
+                  {productImages.length > 1 && (
+                    <>
+                      <button
+                        onClick={() => setSelectedImageIndex((prev) => (prev === 0 ? productImages.length - 1 : prev - 1))}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-card flex items-center justify-center hover-scale"
+                      >
+                        <Icon name="ChevronLeft" size={24} />
+                      </button>
+                      <button
+                        onClick={() => setSelectedImageIndex((prev) => (prev === productImages.length - 1 ? 0 : prev + 1))}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-card flex items-center justify-center hover-scale"
+                      >
+                        <Icon name="ChevronRight" size={24} />
+                      </button>
+                    </>
+                  )}
+                </div>
+                
+                {productImages.length > 1 && (
+                  <div className="grid grid-cols-4 gap-3">
+                    {productImages.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setSelectedImageIndex(idx)}
+                        className={`relative overflow-hidden rounded-lg aspect-square hover-scale ${
+                          selectedImageIndex === idx ? 'ring-2 ring-primary' : 'opacity-60 hover:opacity-100'
+                        }`}
+                      >
+                        <img
+                          src={img}
+                          alt={`${selectedProduct.name} ${idx + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
               
               <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
