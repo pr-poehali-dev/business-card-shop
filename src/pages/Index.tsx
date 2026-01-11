@@ -104,7 +104,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 animate-fade-in">
-              <img src="https://cdn.poehali.dev/files/Рисунок1.png" alt="КЛ" className="h-12 w-auto" />
+              <img src="https://cdn.poehali.dev/files/Рисунок1.png" alt="КЛ" className="h-14 w-auto hover-scale animate-float" />
             </div>
 
             <nav className="hidden md:flex gap-6 animate-fade-in">
