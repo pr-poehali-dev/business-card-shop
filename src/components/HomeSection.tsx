@@ -18,7 +18,7 @@ const HomeSection = ({ setActiveSection }: HomeSectionProps) => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="flex justify-center mb-8">
-              <img src="https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/d7f56b6f-767a-47ae-ad24-f6e554fc3e91.jpg" alt="КЛ - Производственная компания" className="h-48 w-auto animate-float hover-scale logo-colorful" />
+              <img src="https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/fce8a3fc-6c6d-4006-9640-139fa34e16f2.jpg" alt="КЛ - Производственная компания" className="h-48 w-auto animate-float hover-scale logo-colorful" />
             </div>
             <h2 className="font-bold mb-4 text-gradient text-4xl">Безопасность Вашей семьи, забота о бюджете и качестве - наша   задача!</h2>
             <p className="text-xl text-muted-foreground mb-8">
