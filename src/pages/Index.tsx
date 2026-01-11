@@ -30,7 +30,6 @@ const Index = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const products: Product[] = [
-    { id: 1, name: 'Гель для стирки Universal Pro', price: 590, category: 'cleaning', subcategory: 'laundry', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/725c30b3-1498-4c05-9ba2-5568ad16bffe.jpg', badge: 'ХИТ' },
     { id: 2, name: 'Средство для посуды Clean Fresh', price: 290, category: 'cleaning', subcategory: 'dishes', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/a33d96ea-0dc7-4df5-ac90-28be1ce1cfbb.jpg', badge: 'НОВИНКА' },
     { id: 3, name: 'Универсальный порошок bioblesk 0,45кг', price: 450, category: 'cleaning', subcategory: 'laundry', rating: 5, image: 'https://cdn.poehali.dev/files/IMG_5091_обработано_resized.jpg' },
     { id: 4, name: 'Кондиционер для белья Soft', price: 390, category: 'cleaning', subcategory: 'laundry', rating: 4, image: '/placeholder.svg' },
