@@ -31,7 +31,6 @@ const Index = () => {
 
   const products: Product[] = [
     { id: 2, name: 'Средство для посуды Clean Fresh', price: 290, category: 'cleaning', subcategory: 'dishes', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/a33d96ea-0dc7-4df5-ac90-28be1ce1cfbb.jpg', badge: 'НОВИНКА' },
-    { id: 3, name: 'Универсальный порошок bioblesk 0,45кг', price: 450, category: 'cleaning', subcategory: 'laundry', rating: 5, image: 'https://cdn.poehali.dev/files/IMG_5091_обработано_resized.jpg' },
     { id: 4, name: 'Кондиционер для белья Soft', price: 390, category: 'cleaning', subcategory: 'laundry', rating: 4, image: '/placeholder.svg' },
     { id: 5, name: 'Футболка КЛ', price: 1290, category: 'fashion', subcategory: 'tops', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
     { id: 6, name: 'Толстовка КЛ Style', price: 2490, category: 'fashion', subcategory: 'tops', rating: 5, image: '/placeholder.svg' },
