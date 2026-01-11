@@ -13,6 +13,7 @@ const Header = ({ activeSection, setActiveSection, cartLength, onCartOpen }: Hea
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 animate-fade-in">
+            <img src="https://cdn.poehali.dev/files/photo_2026-01-11_11-53-56.jpg" alt="КЛ" className="h-14 w-auto hover-scale object-contain" />
           </div>
 
           <nav className="hidden md:flex gap-6 animate-fade-in">
