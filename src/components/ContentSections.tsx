@@ -49,6 +49,7 @@ interface ContentSectionsProps {
   reviews: Review[];
   renderStars: (rating: number) => JSX.Element[];
   addToCart: (product: Product) => void;
+  onProductClick: (productId: number) => void;
 }
 
 const ContentSections = ({
@@ -65,6 +66,7 @@ const ContentSections = ({
   reviews,
   renderStars,
   addToCart,
+  onProductClick,
 }: ContentSectionsProps) => {
   return (
     <>
@@ -128,8 +130,9 @@ const ContentSections = ({
               {filteredProducts.map((product, index) => (
                 <Card
                   key={product.id}
-                  className="glass-card border-primary/10 overflow-hidden group hover-lift"
+                  className="glass-card border-primary/10 overflow-hidden group hover-lift cursor-pointer"
                   style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => onProductClick(product.id)}
                 >
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden">
@@ -155,7 +158,10 @@ const ContentSections = ({
                         <span className="text-2xl font-bold text-gradient">{product.price} ₽</span>
                         <Button
                           size="sm"
-                          onClick={() => addToCart(product)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            addToCart(product);
+                          }}
                           className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity hover-scale"
                         >
                           <Icon name="ShoppingCart" size={16} className="mr-2" />

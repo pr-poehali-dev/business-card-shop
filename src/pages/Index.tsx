@@ -4,6 +4,9 @@ import Header from '@/components/Header';
 import HomeSection from '@/components/HomeSection';
 import ContentSections from '@/components/ContentSections';
 import CartModal from '@/components/CartModal';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 interface Product {
@@ -28,6 +31,7 @@ const Index = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState('all');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
 
   const products: Product[] = [
     { id: 5, name: 'Футболка КЛ', price: 1290, category: 'fashion', subcategory: 'tops', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
@@ -130,6 +134,13 @@ const Index = () => {
     ));
   };
 
+  const handleProductClick = (productId: number) => {
+    setSelectedProductId(productId);
+    setActiveSection('product-detail');
+  };
+
+  const selectedProduct = products.find(p => p.id === selectedProductId);
+
   return (
     <div className="min-h-screen bg-background">
       <Header 
@@ -157,7 +168,93 @@ const Index = () => {
         reviews={reviews}
         renderStars={renderStars}
         addToCart={addToCart}
+        onProductClick={handleProductClick}
       />
+
+      {activeSection === 'product-detail' && selectedProduct && (
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <Button
+              variant="outline"
+              onClick={() => setActiveSection('catalog')}
+              className="mb-8 hover-scale"
+            >
+              <Icon name="ArrowLeft" size={20} className="mr-2" />
+              Назад к каталогу
+            </Button>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              <div className="animate-fade-in">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className="w-full rounded-2xl glass-card shadow-lg"
+                />
+              </div>
+              
+              <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <h1 className="text-4xl font-bold text-gradient">{selectedProduct.name}</h1>
+                  {selectedProduct.badge && (
+                    <Badge className={`${
+                      selectedProduct.badge === 'ХИТ' ? 'bg-gradient-to-r from-secondary to-accent' : 'bg-gradient-to-r from-primary to-secondary'
+                    }`}>
+                      {selectedProduct.badge}
+                    </Badge>
+                  )}
+                </div>
+                
+                <div className="flex gap-1 mb-6">
+                  {renderStars(selectedProduct.rating)}
+                </div>
+                
+                <div className="text-5xl font-bold text-gradient mb-8">
+                  {selectedProduct.price} ₽
+                </div>
+                
+                <Card className="glass-card border-primary/10 mb-6">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-4">Описание товара</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Высококачественный товар от производственной компании КЛ. 
+                      Создан с заботой о вашей семье и окружающей среде. 
+                      Безопасный состав, проверенное качество, доступная цена.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="glass-card border-primary/10 mb-8">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-4">Преимущества</h3>
+                    <ul className="space-y-3">
+                      {[
+                        'Безопасный натуральный состав',
+                        'Высокое качество продукции',
+                        'Экологичная упаковка',
+                        'Доступная цена',
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                          <span className="text-muted-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+                
+                <Button
+                  size="lg"
+                  onClick={() => addToCart(selectedProduct)}
+                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity text-xl py-6 hover-scale"
+                >
+                  <Icon name="ShoppingCart" size={24} className="mr-3" />
+                  Добавить в корзину
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <CartModal
         isOpen={isCartOpen}
