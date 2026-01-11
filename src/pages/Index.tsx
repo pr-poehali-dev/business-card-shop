@@ -28,26 +28,30 @@ const Index = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const products: Product[] = [
-    { id: 1, name: 'Беспроводные наушники Pro', price: 12990, category: 'electronics', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/094e8393-6d28-4272-a87c-507d0a8e78d4.jpg', badge: 'ХИТ' },
-    { id: 2, name: 'Умные часы Sport', price: 8490, category: 'electronics', rating: 4, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/b066b0ee-f0dd-49ba-98e4-287285f25ee8.jpg', badge: 'НОВИНКА' },
-    { id: 3, name: 'Портативная колонка Bass', price: 5990, category: 'electronics', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/8a941a06-107a-470b-910c-04b470105b82.jpg' },
-    { id: 4, name: 'Кроссовки Urban Style', price: 7990, category: 'fashion', rating: 4, image: '/placeholder.svg' },
-    { id: 5, name: 'Рюкзак Travel Pro', price: 4990, category: 'fashion', rating: 5, image: '/placeholder.svg', badge: 'ХИТ' },
-    { id: 6, name: 'Солнцезащитные очки Pilot', price: 3490, category: 'fashion', rating: 4, image: '/placeholder.svg' },
-    { id: 7, name: 'Игровая мышь RGB Pro', price: 3990, category: 'electronics', rating: 5, image: '/placeholder.svg' },
-    { id: 8, name: 'Механическая клавиатура', price: 9990, category: 'electronics', rating: 5, image: '/placeholder.svg', badge: 'НОВИНКА' },
+    { id: 1, name: 'Гель для стирки Universal Pro', price: 590, category: 'cleaning', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/725c30b3-1498-4c05-9ba2-5568ad16bffe.jpg', badge: 'ХИТ' },
+    { id: 2, name: 'Средство для посуды Clean Fresh', price: 290, category: 'cleaning', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/a33d96ea-0dc7-4df5-ac90-28be1ce1cfbb.jpg', badge: 'НОВИНКА' },
+    { id: 3, name: 'Универсальное чистящее средство', price: 450, category: 'cleaning', rating: 5, image: '/placeholder.svg' },
+    { id: 4, name: 'Кондиционер для белья Soft', price: 390, category: 'cleaning', rating: 4, image: '/placeholder.svg' },
+    { id: 5, name: 'Футболка Urban Play', price: 1290, category: 'fashion', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
+    { id: 6, name: 'Толстовка Urban Style', price: 2490, category: 'fashion', rating: 5, image: '/placeholder.svg' },
+    { id: 7, name: 'Парфюмерная вода Fresh', price: 1890, category: 'cosmetics', rating: 5, image: '/placeholder.svg', badge: 'НОВИНКА' },
+    { id: 8, name: 'Крем для рук Velvet Touch', price: 490, category: 'cosmetics', rating: 4, image: '/placeholder.svg' },
+    { id: 9, name: 'Шампунь Natural Care', price: 690, category: 'cosmetics', rating: 5, image: '/placeholder.svg' },
+    { id: 10, name: 'Туалетная вода Urban Night', price: 2290, category: 'cosmetics', rating: 5, image: '/placeholder.svg' },
   ];
 
   const categories = [
     { id: 'all', name: 'Все товары', icon: 'Grid3x3' },
-    { id: 'electronics', name: 'Электроника', icon: 'Smartphone' },
-    { id: 'fashion', name: 'Мода', icon: 'Sparkles' },
+    { id: 'cleaning', name: 'Бытовая химия', icon: 'Droplets' },
+    { id: 'fashion', name: 'Одежда', icon: 'Shirt' },
+    { id: 'cosmetics', name: 'Косметика и парфюмерия', icon: 'Sparkles' },
   ];
 
   const reviews = [
-    { id: 1, name: 'Анна К.', rating: 5, text: 'Отличный магазин! Быстрая доставка и качественные товары', date: '2 дня назад' },
-    { id: 2, name: 'Михаил П.', rating: 5, text: 'Заказывал наушники - пришли быстро, звук превосходный!', date: '5 дней назад' },
-    { id: 3, name: 'Елена С.', rating: 4, text: 'Хороший ассортимент, удобный сайт. Рекомендую!', date: '1 неделю назад' },
+    { id: 1, name: 'Мария С.', rating: 5, text: 'Отличная бытовая химия! Гель для стирки прекрасно отстирывает, аромат приятный. Рекомендую!', date: '2 дня назад' },
+    { id: 2, name: 'Дмитрий К.', rating: 5, text: 'Заказывал средство для посуды - пенится отлично, посуда блестит. Буду брать еще!', date: '5 дней назад' },
+    { id: 3, name: 'Елена П.', rating: 5, text: 'Очень довольна качеством продукции UrbanPlay. Цены доступные, качество на высоте!', date: '1 неделю назад' },
+    { id: 4, name: 'Сергей В.', rating: 4, text: 'Купил футболку и парфюм - всё отличного качества. Доставка быстрая!', date: '2 недели назад' },
   ];
 
   const filteredProducts = products.filter(product => {
@@ -99,11 +103,8 @@ const Index = () => {
       <header className="sticky top-0 z-50 glass-card border-b border-white/10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 animate-fade-in">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary via-secondary to-accent rounded-xl flex items-center justify-center animate-pulse-glow">
-                <Icon name="Sparkles" size={24} className="text-white" />
-              </div>
-              <h1 className="text-2xl font-bold text-gradient">ShopVibe</h1>
+            <div className="flex items-center gap-3 animate-fade-in">
+              <img src="https://cdn.poehali.dev/files/Рисунок1.png" alt="UrbanPlay" className="h-12 w-auto" />
             </div>
 
             <nav className="hidden md:flex gap-6 animate-fade-in">
@@ -150,10 +151,10 @@ const Index = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center animate-fade-in">
               <h2 className="text-6xl font-bold mb-6 text-gradient animate-float">
-                Новая эра покупок
+                UrbanPlay — чистота и стиль
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Откройте мир трендовых товаров с доставкой по всей России
+                Производитель качественной бытовой химии, одежды, косметики и парфюмерии
               </p>
               <div className="flex gap-4 justify-center">
                 <Button
@@ -177,9 +178,9 @@ const Index = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
               {[
-                { icon: 'Zap', title: 'Быстрая доставка', desc: 'От 1 дня по всей России' },
-                { icon: 'Shield', title: 'Гарантия качества', desc: '100% оригинальная продукция' },
-                { icon: 'Heart', title: 'Поддержка 24/7', desc: 'Всегда на связи для вас' },
+                { icon: 'Factory', title: 'Собственное производство', desc: 'Контроль качества на каждом этапе' },
+                { icon: 'Leaf', title: 'Экологичность', desc: 'Безопасные составы для вас и природы' },
+                { icon: 'Truck', title: 'Быстрая доставка', desc: 'Отправка в день заказа' },
               ].map((feature, i) => (
                 <Card key={i} className="glass-card border-white/10 hover-scale animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
                   <CardContent className="p-6 text-center">
@@ -272,18 +273,18 @@ const Index = () => {
             <Card className="glass-card border-white/10 p-8">
               <CardContent className="space-y-6">
                 <p className="text-lg leading-relaxed">
-                  ShopVibe — это современная платформа для онлайн-покупок, где вы найдете только качественные и трендовые товары. 
-                  Мы работаем напрямую с проверенными поставщиками, чтобы гарантировать вам лучшие цены и оригинальную продукцию.
+                  UrbanPlay — российский производитель качественной бытовой химии с собственным производством. 
+                  Мы создаем эффективные и экологичные средства для уборки и стирки, а также предлагаем стильную одежду, косметику и парфюмерию.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Наша миссия — сделать покупки максимально удобными, быстрыми и приятными. Мы используем современные технологии 
-                  и постоянно совершенствуем наш сервис, чтобы вы получали лучший опыт покупок онлайн.
+                  Наша миссия — сделать ваш дом чистым, а жизнь яркой и комфортной. Мы используем только проверенные и безопасные компоненты, 
+                  чтобы вы могли доверять нашей продукции.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                   {[
-                    { number: '10К+', label: 'Довольных клиентов' },
-                    { number: '5К+', label: 'Товаров в каталоге' },
-                    { number: '99%', label: 'Положительных отзывов' },
+                    { number: '15+', label: 'Лет на рынке' },
+                    { number: '100+', label: 'Наименований продукции' },
+                    { number: '99%', label: 'Экологичных компонентов' },
                   ].map((stat, i) => (
                     <div key={i} className="text-center p-4 glass-card rounded-xl">
                       <div className="text-3xl font-bold text-gradient mb-2">{stat.number}</div>
@@ -336,10 +337,10 @@ const Index = () => {
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {[
-                    { icon: 'Phone', label: 'Телефон', value: '+7 (999) 123-45-67' },
-                    { icon: 'Mail', label: 'Email', value: 'info@shopvibe.ru' },
-                    { icon: 'MapPin', label: 'Адрес', value: 'г. Москва, ул. Примерная, 123' },
-                    { icon: 'Clock', label: 'Режим работы', value: 'Пн-Вс: 9:00 - 21:00' },
+                    { icon: 'Phone', label: 'Телефон', value: '+7 (800) 555-12-34' },
+                    { icon: 'Mail', label: 'Email', value: 'info@urbanplay.ru' },
+                    { icon: 'MapPin', label: 'Адрес производства', value: 'Россия, Московская обл.' },
+                    { icon: 'Clock', label: 'Режим работы', value: 'Пн-Пт: 9:00 - 18:00' },
                   ].map((contact, i) => (
                     <div key={i} className="flex items-start gap-4 p-4 glass-card rounded-xl">
                       <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
