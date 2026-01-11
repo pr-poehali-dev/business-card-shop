@@ -20,9 +20,7 @@ const HomeSection = ({ setActiveSection }: HomeSectionProps) => {
             <div className="flex justify-center mb-8">
               <img src="https://cdn.poehali.dev/files/photo_2026-01-11_11-53-56.jpg" alt="КЛ - Производственная компания" className="h-48 w-auto animate-float hover-scale logo-colorful" />
             </div>
-            <h2 className="text-5xl font-bold mb-4 text-gradient">
-              Чистота, забота и красота
-            </h2>
+            <h2 className="font-bold mb-4 text-gradient text-4xl">Безопасность Вашей семьи, забота о бюджете и качестве - наша   задача!</h2>
             <p className="text-xl text-muted-foreground mb-8">
               Безопасная бытовая химия, стильная одежда и натуральная косметика для вас и вашей семьи
             </p>
