@@ -174,13 +174,12 @@ const ContentSections = ({
               <h2 className="text-4xl font-bold text-center mb-8 text-gradient">О компании КЛ</h2>
               <Card className="glass-card border-primary/10">
                 <CardContent className="p-8">
-                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    КЛ - это современная компания, специализирующаяся на производстве и продаже качественной бытовой химии, 
-                    стильной одежды и натуральной косметики. Мы заботимся о здоровье наших клиентов и окружающей среде.
+                  <p className="text-xl text-center font-semibold mb-8 text-gradient leading-relaxed">
+                    Безопасность Вашей семьи, забота о бюджете и качестве - наша задача!
                   </p>
-                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Наша миссия - сделать жизнь каждой семьи чище, комфортнее и красивее. Мы используем только безопасные 
-                    компоненты и современные технологии производства.
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed text-center">
+                    Это не просто слоган, это реальный ориентир, которому мы следуем! 
+                    Мы создаем продукцию, которая защищает здоровье вашей семьи, бережет ваш кошелек и гарантирует высочайшее качество в каждом продукте.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                     {[
