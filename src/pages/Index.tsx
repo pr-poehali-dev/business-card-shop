@@ -152,10 +152,10 @@ const Index = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center animate-fade-in">
               <h2 className="text-6xl font-bold mb-6 text-gradient animate-float">
-                UrbanPlay — чистота и стиль
+                Чистота, забота и красота
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Производитель качественной бытовой химии, одежды, косметики и парфюмерии
+                Безопасная бытовая химия, стильная одежда и натуральная косметика для вас и вашей семьи
               </p>
               <div className="flex gap-4 justify-center">
                 <Button
@@ -163,25 +163,26 @@ const Index = () => {
                   onClick={() => setActiveSection('catalog')}
                   className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl hover-scale"
                 >
-                  <Icon name="ShoppingBag" size={24} className="mr-2" />
-                  Перейти в каталог
+                  <Icon name="Sparkles" size={24} className="mr-2" />
+                  Смотреть каталог
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  onClick={() => setActiveSection('about')}
+                  onClick={() => setActiveSection('advantages')}
                   className="glass-card text-lg px-8 py-6 rounded-xl hover-scale"
                 >
-                  Узнать больше
+                  <Icon name="Heart" size={24} className="mr-2" />
+                  Почему мы?
                 </Button>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
               {[
-                { icon: 'Factory', title: 'Собственное производство', desc: 'Контроль качества на каждом этапе' },
-                { icon: 'Leaf', title: 'Экологичность', desc: 'Безопасные составы для вас и природы' },
-                { icon: 'Truck', title: 'Быстрая доставка', desc: 'Отправка в день заказа' },
+                { icon: 'Heart', title: 'Безопасно для семьи', desc: 'Без фосфатов, хлора и агрессивных веществ' },
+                { icon: 'Sparkles', title: 'Натуральные компоненты', desc: 'Только растительное сырье и экстракты' },
+                { icon: 'Smile', title: 'Легкость и комфорт', desc: 'Эффективная уборка без усилий' },
               ].map((feature, i) => (
                 <Card key={i} className="glass-card border-white/10 hover-scale animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
                   <CardContent className="p-6 text-center">
@@ -270,9 +271,9 @@ const Index = () => {
       {activeSection === 'advantages' && (
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-6xl animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4 text-center text-gradient">Преимущества наших продуктов</h2>
+            <h2 className="text-4xl font-bold mb-4 text-center text-gradient">Почему нас выбирают?</h2>
             <p className="text-center text-muted-foreground mb-12 text-lg">
-              Расширяй свой бизнес вместе с нами!
+              Забота о вашем доме и здоровье семьи
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -283,10 +284,10 @@ const Index = () => {
                       <Icon name="Droplet" size={24} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Специальная рецептура</h3>
+                      <h3 className="text-xl font-bold mb-2">Эффективность для вас</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Используемые компоненты позволяют получать высокую эффективность мойки и стирки, 
-                        не зависимо от уровня жёсткости воды и типа посудомоечной или стиральной машины.
+                        Наши средства отлично справляются с любыми загрязнениями, даже при жёсткой воде. 
+                        Вы получите идеальную чистоту без лишних усилий!
                       </p>
                     </div>
                   </div>
@@ -300,10 +301,10 @@ const Index = () => {
                       <Icon name="Leaf" size={24} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Экологичный состав</h3>
+                      <h3 className="text-xl font-bold mb-2">Безопасно для семьи</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Продукция не содержит фосфаты, агрессивные ПАВ, хлор, ЭДТА, нефтехимические красители, 
-                        искусственные ароматизаторы, кальцинированную соду. Только растительное сырье.
+                        Ни капли вредных веществ! Без фосфатов, хлора и агрессивной химии. 
+                        Спокойно можно стирать детские вещи и белье для чувствительной кожи.
                       </p>
                     </div>
                   </div>
@@ -317,10 +318,10 @@ const Index = () => {
                       <Icon name="ShieldCheck" size={24} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Безопасность и эффективность</h3>
+                      <h3 className="text-xl font-bold mb-2">Как в натуральной косметике</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        АПАВ из растительного сырья — те же, что используются в органической и натуральной косметике. 
-                        100% биоразлагаемость и полная выполаскиваемость в процессе стирки.
+                        Мы используем те же мягкие ПАВ, что и в органической косметике. 
+                        Полностью выполаскиваются и заботятся о вашей коже.
                       </p>
                     </div>
                   </div>
@@ -334,10 +335,10 @@ const Index = () => {
                       <Icon name="Sparkles" size={24} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Натуральные ароматизаторы</h3>
+                      <h3 className="text-xl font-bold mb-2">Приятный аромат</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        В рецептуре используется только натуральный ароматизатор — эссенции и экстракты. 
-                        Приятный аромат без химии!
+                        Только натуральные эссенции и экстракты — никакой искусственной химии! 
+                        Ваш дом будет пахнуть свежестью и уютом.
                       </p>
                     </div>
                   </div>
@@ -351,10 +352,10 @@ const Index = () => {
                       <Icon name="Shirt" size={24} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Универсальность</h3>
+                      <h3 className="text-xl font-bold mb-2">Для любимых вещей</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Средства для стирки подходят к любому типу ткани — даже к шерсти и шёлку! 
-                        Можно спокойно стирать верхнюю одежду — разводы не оставляет!
+                        Подходит для любых тканей — даже для шерсти, шёлка и деликатных тканей! 
+                        Стирайте пальто и пуховики без разводов!
                       </p>
                     </div>
                   </div>
@@ -368,10 +369,10 @@ const Index = () => {
                       <Icon name="Target" size={24} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Качество превыше количества</h3>
+                      <h3 className="text-xl font-bold mb-2">Проверено временем</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Тщательный подход к разработке рецептуры, тестированию продукта, проверке используемого сырья. 
-                        Каждая новинка — это кропотливая и долгосрочная работа нашей команды.
+                        Каждый продукт тщательно разрабатывается и тестируется. 
+                        Тысячи женщин уже доверяют нам заботу о своём доме!
                       </p>
                     </div>
                   </div>
@@ -409,12 +410,12 @@ const Index = () => {
             <Card className="glass-card border-white/10 p-8">
               <CardContent className="space-y-6">
                 <p className="text-lg leading-relaxed">
-                  UrbanPlay — российский производитель качественной бытовой химии с собственным производством. 
-                  Мы создаем эффективные и экологичные средства для уборки и стирки, а также предлагаем стильную одежду, косметику и парфюмерию.
+                  UrbanPlay — это забота о вашем доме и семье. Мы создаем безопасные средства для уборки и стирки, 
+                  которые берегут вашу кожу и природу. А также предлагаем стильную одежду, натуральную косметику и изысканные ароматы.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Наша миссия — сделать ваш дом чистым, а жизнь яркой и комфортной. Мы используем только проверенные и безопасные компоненты, 
-                  чтобы вы могли доверять нашей продукции.
+                  Мы понимаем, как важно чувствовать себя уверенно, зная, что вы используете только лучшее для себя и своих близких. 
+                  Только натуральные компоненты, проверенные рецептуры и забота о каждой детали.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                   {[
