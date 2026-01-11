@@ -32,12 +32,12 @@ const Index = () => {
     { id: 2, name: 'Средство для посуды Clean Fresh', price: 290, category: 'cleaning', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/a33d96ea-0dc7-4df5-ac90-28be1ce1cfbb.jpg', badge: 'НОВИНКА' },
     { id: 3, name: 'Универсальное чистящее средство', price: 450, category: 'cleaning', rating: 5, image: '/placeholder.svg' },
     { id: 4, name: 'Кондиционер для белья Soft', price: 390, category: 'cleaning', rating: 4, image: '/placeholder.svg' },
-    { id: 5, name: 'Футболка bioblesk', price: 1290, category: 'fashion', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
-    { id: 6, name: 'Толстовка bioblesk Style', price: 2490, category: 'fashion', rating: 5, image: '/placeholder.svg' },
+    { id: 5, name: 'Футболка КЛ', price: 1290, category: 'fashion', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
+    { id: 6, name: 'Толстовка КЛ Style', price: 2490, category: 'fashion', rating: 5, image: '/placeholder.svg' },
     { id: 7, name: 'Парфюмерная вода Fresh', price: 1890, category: 'cosmetics', rating: 5, image: '/placeholder.svg', badge: 'НОВИНКА' },
     { id: 8, name: 'Крем для рук Velvet Touch', price: 490, category: 'cosmetics', rating: 4, image: '/placeholder.svg' },
     { id: 9, name: 'Шампунь Natural Care', price: 690, category: 'cosmetics', rating: 5, image: '/placeholder.svg' },
-    { id: 10, name: 'Туалетная вода bioblesk Night', price: 2290, category: 'cosmetics', rating: 5, image: '/placeholder.svg' },
+    { id: 10, name: 'Туалетная вода КЛ Night', price: 2290, category: 'cosmetics', rating: 5, image: '/placeholder.svg' },
   ];
 
   const categories = [
@@ -50,7 +50,7 @@ const Index = () => {
   const reviews = [
     { id: 1, name: 'Мария С.', rating: 5, text: 'Отличная бытовая химия! Гель для стирки прекрасно отстирывает, аромат приятный. Рекомендую!', date: '2 дня назад' },
     { id: 2, name: 'Дмитрий К.', rating: 5, text: 'Заказывал средство для посуды - пенится отлично, посуда блестит. Буду брать еще!', date: '5 дней назад' },
-    { id: 3, name: 'Елена П.', rating: 5, text: 'Очень довольна качеством продукции bioblesk. Цены доступные, качество на высоте!', date: '1 неделю назад' },
+    { id: 3, name: 'Елена П.', rating: 5, text: 'Очень довольна качеством продукции КЛ. Цены доступные, качество на высоте!', date: '1 неделю назад' },
     { id: 4, name: 'Сергей В.', rating: 4, text: 'Купил футболку и парфюм - всё отличного качества. Доставка быстрая!', date: '2 недели назад' },
   ];
 
@@ -104,7 +104,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 animate-fade-in">
-              <img src="https://cdn.poehali.dev/files/Рисунок1.png" alt="bioblesk" className="h-12 w-auto" />
+              <img src="https://cdn.poehali.dev/files/Рисунок1.png" alt="КЛ" className="h-12 w-auto" />
             </div>
 
             <nav className="hidden md:flex gap-6 animate-fade-in">
@@ -410,7 +410,7 @@ const Index = () => {
             <Card className="glass-card border-white/10 p-8">
               <CardContent className="space-y-6">
                 <p className="text-lg leading-relaxed">
-                  bioblesk — это забота о вашем доме и семье. Мы создаем безопасные средства для уборки и стирки, 
+                  <strong>КЛ (Качество и Любовь)</strong> — это забота о вашем доме и семье. Мы создаем безопасные средства для уборки и стирки, 
                   которые берегут вашу кожу и природу. А также предлагаем стильную одежду, натуральную косметику и изысканные ароматы.
                 </p>
                 <p className="text-lg leading-relaxed">
@@ -475,7 +475,7 @@ const Index = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {[
                     { icon: 'Phone', label: 'Телефон', value: '+7 (800) 555-12-34' },
-                    { icon: 'Mail', label: 'Email', value: 'info@bioblesk.ru' },
+                    { icon: 'Mail', label: 'Email', value: 'info@kl-clean.ru' },
                     { icon: 'MapPin', label: 'Адрес производства', value: 'Россия, Московская обл.' },
                     { icon: 'Clock', label: 'Режим работы', value: 'Пн-Пт: 9:00 - 18:00' },
                   ].map((contact, i) => (
