@@ -30,7 +30,6 @@ const Index = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const products: Product[] = [
-    { id: 4, name: 'Кондиционер для белья Soft', price: 390, category: 'cleaning', subcategory: 'laundry', rating: 4, image: '/placeholder.svg' },
     { id: 5, name: 'Футболка КЛ', price: 1290, category: 'fashion', subcategory: 'tops', rating: 5, image: 'https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/0fc18576-95e9-49ab-8086-f166a1ee1032.jpg', badge: 'ХИТ' },
     { id: 6, name: 'Толстовка КЛ Style', price: 2490, category: 'fashion', subcategory: 'tops', rating: 5, image: '/placeholder.svg' },
     { id: 7, name: 'Парфюмерная вода Fresh', price: 1890, category: 'cosmetics', subcategory: 'perfume', rating: 5, image: '/placeholder.svg', badge: 'НОВИНКА' },
