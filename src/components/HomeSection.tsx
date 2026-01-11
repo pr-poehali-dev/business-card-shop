@@ -21,7 +21,7 @@ const HomeSection = ({ setActiveSection }: HomeSectionProps) => {
               <img src="https://cdn.poehali.dev/projects/5dffc7a2-bb39-4eec-ad6e-6308d2b14ecb/files/d7f56b6f-767a-47ae-ad24-f6e554fc3e91.jpg" alt="КЛ - Производственная компания" className="h-48 w-auto animate-float hover-scale logo-colorful" />
             </div>
             <h2 className="font-bold mb-4 text-gradient text-4xl">Безопасность Вашей семьи, забота о бюджете и качестве - наша   задача!</h2>
-            <p className="text-xl text-muted-foreground mb-8">Безопасная бытовая химия, стильная одежда  и натуральная косметика для Вас и вашей семьи!!!</p>
+            <p className="text-xl text-muted-foreground mb-8">Безопасная бытовая химия, стильная одежда и натуральная косметика для вас и вашей семьи. Закажите прямо сейчас и получите здоровье и комфорт для всей семьи!</p>
             <div className="flex gap-4 justify-center">
               <Button
                 size="lg"
