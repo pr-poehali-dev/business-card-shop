@@ -111,6 +111,7 @@ const Index = () => {
               {[
                 { id: 'home', label: 'Главная', icon: 'Home' },
                 { id: 'catalog', label: 'Каталог', icon: 'ShoppingBag' },
+                { id: 'advantages', label: 'Преимущества', icon: 'Award' },
                 { id: 'about', label: 'О нас', icon: 'Info' },
                 { id: 'reviews', label: 'Отзывы', icon: 'MessageSquare' },
                 { id: 'contacts', label: 'Контакты', icon: 'Phone' },
@@ -262,6 +263,141 @@ const Index = () => {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {activeSection === 'advantages' && (
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-6xl animate-fade-in">
+            <h2 className="text-4xl font-bold mb-4 text-center text-gradient">Преимущества наших продуктов</h2>
+            <p className="text-center text-muted-foreground mb-12 text-lg">
+              Расширяй свой бизнес вместе с нами!
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <Card className="glass-card border-white/10 hover-scale">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Droplet" size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Специальная рецептура</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Используемые компоненты позволяют получать высокую эффективность мойки и стирки, 
+                        не зависимо от уровня жёсткости воды и типа посудомоечной или стиральной машины.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-white/10 hover-scale">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Leaf" size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Экологичный состав</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Продукция не содержит фосфаты, агрессивные ПАВ, хлор, ЭДТА, нефтехимические красители, 
+                        искусственные ароматизаторы, кальцинированную соду. Только растительное сырье.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-white/10 hover-scale">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="ShieldCheck" size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Безопасность и эффективность</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        АПАВ из растительного сырья — те же, что используются в органической и натуральной косметике. 
+                        100% биоразлагаемость и полная выполаскиваемость в процессе стирки.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-white/10 hover-scale">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Sparkles" size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Натуральные ароматизаторы</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        В рецептуре используется только натуральный ароматизатор — эссенции и экстракты. 
+                        Приятный аромат без химии!
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-white/10 hover-scale">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Shirt" size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Универсальность</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Средства для стирки подходят к любому типу ткани — даже к шерсти и шёлку! 
+                        Можно спокойно стирать верхнюю одежду — разводы не оставляет!
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-white/10 hover-scale">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name="Target" size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Качество превыше количества</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Тщательный подход к разработке рецептуры, тестированию продукта, проверке используемого сырья. 
+                        Каждая новинка — это кропотливая и долгосрочная работа нашей команды.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="glass-card border-white/10 p-8">
+              <CardContent className="text-center">
+                <h3 className="text-2xl font-bold mb-4 text-gradient">Наши бренды</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="p-6 glass-card rounded-xl">
+                    <h4 className="text-xl font-bold mb-2">Bioblesk</h4>
+                    <p className="text-muted-foreground">
+                      Порошки, кондиционеры, пятновыводитель и таблетки для посудомоечных машин
+                    </p>
+                  </div>
+                  <div className="p-6 glass-card rounded-xl">
+                    <h4 className="text-xl font-bold mb-2">Звезда</h4>
+                    <p className="text-muted-foreground">
+                      Высокое качество по приемлемой цене! Ежедневно получает отличные отзывы от потребителей
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
       )}
